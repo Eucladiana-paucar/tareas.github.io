@@ -1,0 +1,596 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #296271;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background-color: #fa155a; /* Color de fondo al pasar el mouse */
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color:  #124654;
+    list-style: none;
+    padding: 15px;
+    margin-top: 5px;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.submenu a {
+    color: white;
+    padding: 5px 20px; /* Espaciado interno para los submenús */
+}
+
+/* Mostrar submenú al pasar el mouse */
+.menu li:hover .submenu {
+    display: block; 
+}
+
+/* Estilo para el menú hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Ocultar menú en dispositivos móviles */
+        flex-direction: column; /* Cambiar a columna */
+        background-color:  #404b62; /* Color de fondo del menú hamburguesa */
+        position: absolute; /* Posicionarlo correctamente */
+        top: 60px; /* Debajo de la barra de navegación */
+        right: 0;
+        width: 100%; /* Ocupa el 100% del ancho */
+        z-index: 999; /* Asegurarse que esté encima de otros elementos */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar menú hamburguesa */
+    }
+
+    .menu.active {
+        display: flex; /* Mostrar menú cuando se activa */
+    }
+
+    .submenu {
+        position: relative; /* Cambiar posición de submenús en móviles */
+        padding-left: 20px; /* Indentar submenús */
+    }
+
+    .courses {
+        flex-direction: column; /* Cambiar a columna en móvil */
+    }
+
+    .course-item {
+        width: 100%; /* Ocupa el 100% en móvil */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos del header */
+header {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Alto completo de la ventana */
+    background-image: url('img/header.png'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Estilo del contenedor interno */
+.header-content {
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0 0 10px 0;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:   #00a08f; /* Color del botón */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #fa155a; /* Color del botón al pasar el mouse */
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    a.button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    a.button {
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* sobre mi*/
+#sobre-mi {
+    background-color: #e6f9f6;
+    margin: 40px auto; /* Espaciado superior e inferior */
+    padding: 20px; /* Espaciado interno */
+    max-width: 1200px; /* Ancho máximo */
+}
+
+.sobre-mi-contenedor {
+    display: flex;
+    justify-content: space-between; /* Espacio entre texto e imagen */
+    align-items: center; /* Alineación vertical */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.texto {
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
+    padding-right: 20px; /* Espacio a la derecha del texto */
+}
+
+.texto h2 {
+    font-size: 24px; /* Tamaño del título */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+    color: #124654;
+}
+
+.texto h3 {
+    font-size: 20px; /* Tamaño del subtítulo */
+    margin-bottom: 15px; /* Espaciado debajo del subtítulo */
+    color: #124654;
+}
+
+.texto p {
+    font-size: 16px; /* Tamaño del párrafo */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-bottom: 15px; /* Espaciado entre párrafos */
+}
+
+.imagen {
+    flex: 1; /* Permite que la imagen ocupe espacio */
+    display: flex; /* Usar flex para centrar la imagen */
+    justify-content: center; /* Centra la imagen horizontalmente */
+}
+
+.imagen img {
+    max-width: 100%; /* Ajusta la imagen al contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* ----- Estilos Responsivos ----- */
+@media (max-width: 768px) {
+    .sobre-mi-contenedor {
+        flex-direction: column; /* Cambia a columna en dispositivos pequeños */
+        align-items: center; /* Centra los elementos verticalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .texto {
+        padding-right: 0; /* Elimina el espaciado derecho en vista móvil */
+        padding-bottom: 20px; /* Espacio inferior en vista móvil */
+    }
+
+    .imagen {
+        margin-top: 20px; /* Añade margen superior a la imagen en vista móvil */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* contenedor de semanas */
+
+.contenedor-semanas {
+    max-width: 80%; /* Reduce el ancho total */
+    margin: 0 auto; /* Centra el contenedor */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #0d3945;
+}
+
+.fila-semanas {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.semana {
+    position: relative;
+    width: 30%; /* Ancho de cada semana */
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: all 0.3s ease;
+    overflow: visible; /* Permite que el submenú se expanda */
+}
+
+.semana h3 {
+    margin: 0;
+    padding: 15px;
+    background-color: #00a08f;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Coloca el submenú debajo del contenedor */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #f8f9fa;
+    border: 1px solid #00a08f;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sub-menu li {
+    list-style: none;
+    padding: 10px;
+}
+
+.sub-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 6px;
+    display: block;
+}
+
+.semana:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu li a:hover {
+    background-color: #007BFF;
+    color: rgb(185, 181, 181);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-semanas {
+        max-width: 100%; /* El contenedor toma el ancho completo */
+    }
+    .fila-semanas {
+        flex-direction: column;
+    }
+    .semana {
+        width: 80%; /* Ancho mayor en pantallas pequeñas */
+        margin: 10px auto; /* Margen automático */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedor de cada tema en el sub-menú */
+.contenido-tema {
+    display: flex; /* Alinea en fila el texto y los botones */
+    justify-content: flex-start; /* Espacio entre el tema y los botones */
+    align-items: center; /* Centra verticalmente */
+   
+    width: 100%;
+}
+
+/* Texto del tema */
+.contenido-tema span {
+    flex: 1; /* Ocupa todo el espacio disponible en el contenedor */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Contenedor de los botones */
+.botones {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Estilo de los botones */
+.boton-problema, .boton-github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.boton-problema {
+    background-color: #007bff; /* Azul para Ver Problema */
+}
+
+.boton-github {
+    background-color: #24292f; /* Gris oscuro para GitHub */
+}
+
+/* Estilo de los iconos */
+.boton-problema img, .boton-github img {
+    margin-right: 2px; /* Espacio entre el icono y el texto */
+}
+
+/* Hover de los botones */
+.boton-problema:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+.boton-github:hover {
+    background-color: #ede3e3; /* Negro al pasar el mouse */
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenido-tema {
+        flex-direction: column; /* Elementos en columna para móviles */
+        align-items: center; /* Centra todo en pantalla pequeña */
+        text-align: center; /* Centra el texto del tema */
+    }
+
+    .botones {
+        justify-content: center; /* Centra los botones */
+        margin-top: 2px; /* Espacio adicional entre texto y botones */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- Estilos para el Footer ----- */
+.footer {
+    background-color: #124654;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Secciones del Footer */
+.footer-seccion {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-seccion h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.footer-seccion p, .footer-seccion a {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #b0b0b0;
+    text-decoration: none;
+}
+
+.footer-seccion a:hover {
+    color: #fff;
+}
+
+.footer-seccion .icono {
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.footer-seccion .icono img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer-seccion .icono img:hover {
+    transform: scale(1.1);
+}
+
+/* ----- Estilos Responsivos ----- */
+@media (max-width: 768px) {
+    .footer-contenido {
+        flex-direction: column;
+        align-items: center; /* Centra los elementos verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+        text-align: center;
+        width: 95%; /* Ajuste del tamaño del contenedor */
+    }
+
+    .footer-seccion {
+        margin-bottom: 20px; /* Espaciado entre secciones */
+        text-align: center;  /* Centrar el texto dentro de cada sección */
+    }
+
+    .footer-seccion .icono {
+        margin: 5px; /* Ajustar el margen entre iconos */
+    }
+
+    .footer-seccion p, .footer-seccion a {
+        font-size: 15px; /* Texto ligeramente más grande para facilitar la lectura en móviles */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
